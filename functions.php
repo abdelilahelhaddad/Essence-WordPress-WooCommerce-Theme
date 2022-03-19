@@ -39,15 +39,48 @@ function essence_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+		/*
+		* Enable support for WooCommerce.
+		*/
+	add_theme_support( 'woocommerce', array(
+		'thumbnail_image_width' => 300,
+		'single_image_width'    => 400,
+
+        'product_grid'          => array(
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 6,
+            'default_columns' => 3,
+            'min_columns'     => 3,
+            'max_columns'     => 3,
+        ),
+	) );
+
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+
+	/* Insert big images without breaking content area*/
+
+	if ( ! isset( $content_width ) ) {
+		$content_width = 600;
+	}
+
 	/**
  * Enqueue WP Bootstrap Navwalker library (responsive menu).
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
 			'essence_main_menu' 	=> esc_html__( 'Essence Main Menu', 'essence' ),
+			'essence_footer_menu' 	=> esc_html__( 'Essence Footer Menu', 'essence' ),
 		)
 	);
 

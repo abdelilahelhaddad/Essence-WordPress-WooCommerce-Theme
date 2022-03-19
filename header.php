@@ -51,18 +51,18 @@
                     </div>
                     <!-- Nav Start -->
                     <div class="classynav">
-												<?php 
-											wp_nav_menu( 
-												array( 
-													'theme_location' 	=> 'essence_main_menu',
-													'depth' 			=> 3,
-													'container'         => 'ul',
-													'container_class'   => 'single-mega cn-col-4',
-													'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-													'walker'            => new WP_Bootstrap_Navwalker(),
-												) 
-											); 
-										?>		
+                                <?php 
+                            wp_nav_menu( 
+                                array( 
+                                    'theme_location' 	=> 'essence_main_menu',
+                                    'depth' 			=> 2,
+                                    'container'         => 'ul',
+                                    'container_class'   => 'single-mega cn-col-4',
+                                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                                    'walker'            => new WP_Bootstrap_Navwalker(),
+                                ) 
+                            ); 
+                        ?>		
                     </div>
                     <!-- Nav End -->
                 </div>
