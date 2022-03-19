@@ -1071,25 +1071,25 @@ img {
       text-transform: capitalize; }
       .footer_area .single_widget_area .footer_menu ul li a:hover, .footer_area .single_widget_area .footer_menu ul li a:focus {
         color: #ffffff; }
-  .footer_area .single_widget_area .footer_widget_menu {
+  .footer_area .single_widget_area .wp-block-page-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .footer_area .single_widget_area .footer_widget_menu li {
+    .footer_area .single_widget_area .wp-block-page-list li {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
       flex: 0 0 50%;
       width: 50%; }
-      .footer_area .single_widget_area .footer_widget_menu li a {
+      .footer_area .single_widget_area .wp-block-page-list li a {
         display: block;
         font-size: 12px;
         color: rgba(255, 255, 255, 0.6);
         display: block;
         font-weight: 400;
         margin-bottom: 10px; }
-        .footer_area .single_widget_area .footer_widget_menu li a:hover, .footer_area .single_widget_area .footer_widget_menu li a:focus {
+        .footer_area .single_widget_area .wp-block-page-list li a:hover, .footer_area .single_widget_area .wp-block-page-list li a:focus {
           color: #ffffff; }
   .footer_area .single_widget_area .footer_heading h6 {
     color: #ffffff;
