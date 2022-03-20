@@ -133,7 +133,7 @@ require get_template_directory() . '/inc/customizer.php';
 }
 add_action( 'after_setup_theme', 'essence_setup' );
 
-function essence_sidebars(){
+function essence_widgets(){
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer Sidebar', 'essence' ),
 		'id'            => 'essence-sidebar-footer',
@@ -143,8 +143,17 @@ function essence_sidebars(){
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Subscribtion Widget', 'essence' ),
+		'id'            => 'essence-widget-footer',
+		'description'   => esc_html__( 'Drag and drop your widgets here.', 'essence' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s widget-wrapper">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
 }
-add_action( 'widgets_init', 'essence_sidebars' );
+add_action( 'widgets_init', 'essence_widgets' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

@@ -1750,5 +1750,12 @@ img {
             color: #0315ff; }
 
 /* ##### The End ##### */
+.wpcf7-form{
+	display: flex !important;
+}
 
+.wpcf7-form p:nth-child(3){
+	margin-top: 1.75rem !important;
+	margin-left: 0.5rem !important;
+}
 /*# sourceMappingURL=core-style.css.map */

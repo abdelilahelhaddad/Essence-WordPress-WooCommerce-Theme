@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="row align-items-end">
+            <div class="row align-items-center">
                 <!-- Single Widget Area -->
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area">
@@ -57,10 +57,9 @@
                             <h6>Subscribe</h6>
                         </div>
                         <div class="subscribtion_form">
-                            <form action="#" method="post">
-                                <input type="email" name="mail" class="mail" placeholder="Your email here">
-                                <button type="submit" class="submit"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                            </form>
+                        <?php if( is_active_sidebar( 'essence-widget-footer' ) ): ?>
+						<?php dynamic_sidebar( 'essence-widget-footer' ); ?>
+						<?php endif; ?>
                         </div>
                     </div>
                 </div>
