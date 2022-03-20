@@ -1750,6 +1750,25 @@ img {
             color: #0315ff; }
 
 /* ##### The End ##### */
+
+.custom-logo-link{
+  margin-right: 30px;
+}
+
+.nav-link{
+  font-size: 16px !important;
+  color: #787878 !important;
+}
+
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
 .wpcf7-form{
 	display: flex !important;
 }

@@ -133,6 +133,10 @@ require get_template_directory() . '/inc/customizer.php';
 }
 add_action( 'after_setup_theme', 'essence_setup' );
 
+/*
+	Add Footer and Subscribtion Widgets
+*/
+
 function essence_widgets(){
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer Sidebar', 'essence' ),

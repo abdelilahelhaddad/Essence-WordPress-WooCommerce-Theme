@@ -27,12 +27,7 @@
 												<?php 
                             wp_nav_menu( 
                                 array( 
-                                    'theme_location' 	=> 'essence_footer_menu',
-                                    'depth' 			=> 3,
-                                    'container'         => 'ul',
-                                    'container_class'   => 'single-mega cn-col-4',
-                                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                                    'walker'            => new WP_Bootstrap_Navwalker(),
+                                    'theme_location' 	=> 'essence_footer_menu'
                                 ) 
                             ); 
                         ?>	

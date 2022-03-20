@@ -27,10 +27,15 @@
 <header class="header_area">
         <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
             <!-- Classy Menu -->
-            <nav class="classy-navbar" id="essenceNav">
-                <!-- Logo -->
 
-								<?php 
+            <nav class="navbar navbar-expand-md navbar-light" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'your-theme-slug' ); ?>">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+    <?php 
 	                            if( has_custom_logo() ):
 	                                the_custom_logo();
 	                            else:    
@@ -38,35 +43,21 @@
 	                                <p class="site-title"><?php bloginfo( 'title' );?></p>
 	                                <span ><?php bloginfo( 'description' );?></span>   
 	                            <?php endif;?>
-
-                <!-- Navbar Toggler -->
-                <div class="classy-navbar-toggler">
-                    <span class="navbarToggler"><span></span><span></span><span></span></span>
-                </div>
-                <!-- Menu -->
-                <div class="classy-menu">
-                    <!-- close btn -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-                    <!-- Nav Start -->
-                    <div class="classynav">
-                                <?php 
-                            wp_nav_menu( 
-                                array( 
-                                    'theme_location' 	=> 'essence_main_menu',
-                                    'depth' 			=> 2,
-                                    'container'         => 'ul',
-                                    'container_class'   => 'single-mega cn-col-4',
-                                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                                    'walker'            => new WP_Bootstrap_Navwalker(),
-                                ) 
-                            ); 
-                        ?>		
-                    </div>
-                    <!-- Nav End -->
-                </div>
-            </nav>
+    </a>
+        <?php
+        wp_nav_menu( array(
+            'theme_location'    => 'essence_main_menu',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse',
+            'container_id'      => 'bs-example-navbar-collapse-1',
+            'menu_class'        => 'nav navbar-nav',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker(),
+        ) );
+        ?>
+    </div>
+</nav>
 
             <!-- Header Meta Data -->
             <div class="header-meta d-flex clearfix justify-content-end">
