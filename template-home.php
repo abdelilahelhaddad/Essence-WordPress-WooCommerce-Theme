@@ -127,27 +127,43 @@ get_header();
 <div class="top_catagory_area section-padding-80 clearfix">
     <div class="container">
         <div class="row justify-content-center">
+            <?php 
+            function product_category_image($term_slug){
+                $taxonomy     = 'product_cat';
+                $term_id      = get_term_by( 'slug', $term_slug, $taxonomy )->term_id;
+                $thumbnail_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true );
+                $image        = wp_get_attachment_url( $thumbnail_id );
+                return $image;
+            }
+
+            function product_category_url($term_slug){
+                $taxonomy     = 'product_cat';
+                $term_id      = get_term_by( 'slug', $term_slug, $taxonomy )->term_id;
+                $link = get_term_link( $term_id, $taxonomy );
+                return $link;
+            }
+            ?>
             <!-- Single Catagory -->
             <div class="col-12 col-sm-6 col-md-4">
-                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(<?php echo product_category_image('clothing'); ?>);">
                     <div class="catagory-content">
-                        <a href="#">Clothing</a>
+                        <a href="<?php echo product_category_url('clothing'); ?>">Clothing</a>
                     </div>
                 </div>
             </div>
             <!-- Single Catagory -->
             <div class="col-12 col-sm-6 col-md-4">
-                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-3.jpg);">
+                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(<?php echo product_category_image('shoes'); ?>);">
                     <div class="catagory-content">
-                        <a href="#">Shoes</a>
+                        <a href="<?php echo product_category_url('shoes'); ?>">Shoes</a>
                     </div>
                 </div>
             </div>
             <!-- Single Catagory -->
             <div class="col-12 col-sm-6 col-md-4">
-                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-4.jpg);">
+                <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(<?php echo product_category_image('accessories'); ?>);">
                     <div class="catagory-content">
-                        <a href="#">Accessories</a>
+                        <a href="<?php echo product_category_url('accessories'); ?>">Accessories</a>
                     </div>
                 </div>
             </div>
