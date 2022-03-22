@@ -102,19 +102,25 @@ get_header();
 <!-- ##### Right Side Cart End ##### -->
 
 <!-- ##### Welcome Area Start ##### -->
-<section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-1.jpg);">
+<?php 
+    // Getting data from Customizer to display the Hero section
+    $hero_section_page = get_theme_mod( 'set_hero_section' );
+    $hero_section_button_text = get_theme_mod( 'set_button_hero_section' );
+    $hero_section_button_url = get_theme_mod( 'set_button_url_hero_section' );
+?>
+<section class="welcome_area bg-img background-overlay" style="background-image: url(<?php echo get_the_post_thumbnail_url($hero_section_page, 'essence-hero-section'); ?>);">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="hero-content">
-                    <h6>asoss</h6>
-                    <h2>New Collection</h2>
-                    <a href="#" class="btn essence-btn">view collection</a>
+                    <h2><?php echo get_the_title($hero_section_page); ?></h2>
+                    <a href="<?php echo $hero_section_button_url; ?>" class="btn essence-btn"><?php echo $hero_section_button_text; ?></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- ##### Welcome Area End ##### -->
 
 <!-- ##### Top Catagory Area Start ##### -->

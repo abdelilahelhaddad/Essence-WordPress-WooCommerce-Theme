@@ -106,5 +106,69 @@ function essence_customizer( $wp_customize ){
 							)
 						);
 
+/************************************************************************************************/
+	// Hero Section Section
+
+	$wp_customize->add_section( 
+		'sec_hero_section', array(
+			'title' 		=> __( 'Hero Section Settings', 'essence'),
+			'description' 	=> __( 'Hero Section Section', 'essence' )
+		)
+	);
+
+			// Field 1 - Hero Section
+			$wp_customize->add_setting(
+				'set_hero_section', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'absint'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_hero_section', array(
+					'label' 		=> __( 'Set Hero Section', 'essence' ),
+					'description' 	=> __( 'Set Hero Section', 'essence' ),
+					'section' 		=> 'sec_hero_section',
+					'type' 			=> 'dropdown-pages'
+				)
+			);
+
+			// Field 2 - Hero Section Button Text
+			$wp_customize->add_setting(
+				'set_button_hero_section', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'sanitize_text_field'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_button_hero_section', array(
+					'label' 		=> __( 'Button Text for Hero Section', 'essence' ),
+					'description' 	=> __( 'Button Text for Hero Section', 'essence' ),
+					'section' 		=> 'sec_hero_section',
+					'type' 			=> 'text'
+				)
+			);
+
+			// Field 3 - Hero Section Button URL
+			$wp_customize->add_setting(
+				'set_button_url_hero_section', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'esc_url_raw'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_button_url_hero_section', array(
+					'label' 		=> __( 'URL for Hero Section', 'essence' ),
+					'description' 	=> __( 'URL for Hero Section', 'essence' ),
+					'section' 		=> 'sec_hero_section',
+					'type' 			=> 'url'
+				)
+			);
+
 }
 add_action( 'customize_register', 'essence_customizer' );
