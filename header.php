@@ -34,7 +34,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'your-theme-slug' ); ?>">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="<?php echo esc_url( home_url('/') );?>">
     <?php 
 	                            if( has_custom_logo() ):
 	                                the_custom_logo();
@@ -63,18 +63,22 @@
             <div class="header-meta d-flex clearfix justify-content-end">
                 <!-- Search Area -->
                 <div class="search-area">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
+                <?php get_search_form(); ?>
                 </div>
                 <!-- Favourite Area -->
+                <?php if( class_exists( 'WooCommerce' ) ): ?>
                 <div class="favourite-area">
-                    <a href="#"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/heart.svg" alt=""></a>
+                <?php if ( is_user_logged_in() ) : ?>
+                    <a href="<?php echo esc_url( home_url('/wishlist'));?>"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/heart.svg" alt=""></a>
+                <?php else: ?>
+
+                <?php endif; ?>
                 </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
                 <?php if ( is_user_logged_in() ) : ?>
+                    <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/user.svg" alt=""></a>
+                <?php else: ?>
                     <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/user.svg" alt=""></a>
                 <?php endif; ?>
                 </div>
@@ -82,6 +86,7 @@
                 <div class="cart-area">
                     <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" id="essenceCartBtn"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/bag.svg" alt=""> <span><?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?></span></a>
                 </div>
+                <?php endif; ?>
             </div>
 
         </div>
