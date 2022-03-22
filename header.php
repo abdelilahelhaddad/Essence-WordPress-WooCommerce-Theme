@@ -74,11 +74,13 @@
                 </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <a href="#"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/user.svg" alt=""></a>
+                <?php if ( is_user_logged_in() ) : ?>
+                    <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/user.svg" alt=""></a>
+                <?php endif; ?>
                 </div>
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/bag.svg" alt=""> <span>3</span></a>
+                    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" id="essenceCartBtn"><img src="<?php echo get_template_directory_uri(  ); ?>/img/core-img/bag.svg" alt=""> <span><?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?></span></a>
                 </div>
             </div>
 
