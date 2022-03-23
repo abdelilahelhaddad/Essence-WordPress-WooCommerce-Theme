@@ -170,5 +170,72 @@ function essence_customizer( $wp_customize ){
 				)
 			);
 
+				/*---------------------------------------------------------------------------------------*/
+	// Popular Products Settings
+
+	$wp_customize->add_section( 
+		'sec_popular_products', array(
+			'title' 		=> __( 'Popular Products Settings', 'essence'),
+			'description' 	=> __( 'Popular Products Section', 'essence' )
+		)
+	);
+
+		// We're gonna show the following options if WooCommerce is active
+		if( class_exists( 'WooCommerce' )):
+
+			// Field 1 - Popular Products Title
+			$wp_customize->add_setting(
+				'set_popular_title', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'sanitize_text_field'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_popular_title', array(
+					'label' 		=> __( 'Popular Products Title', 'essence' ),
+					'description' 	=> __( 'Popular Products Title', 'essence' ),
+					'section' 		=> 'sec_popular_products',
+					'type' 			=> 'text'
+				)
+			);
+
+			// Field 2 - Popular Products Limit
+			$wp_customize->add_setting(
+				'set_popular_max_num', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'absint'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_popular_max_num', array(
+					'label' 		=> __( 'Popular Products Max Number', 'essence' ),
+					'description' 	=> __( 'Popular Products Max Number', 'essence' ),
+					'section' 		=> 'sec_popular_products',
+					'type' 			=> 'number'
+				)
+			);
+
+			// Field 3 - Popular Products Columns
+			$wp_customize->add_setting(
+				'set_popular_max_col', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'absint'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_popular_max_col', array(
+					'label' 		=> __( 'Popular Products Max Columns', 'essence' ),
+					'description' 	=> __( 'Popular Products Max Columns', 'essence' ),
+					'section' 		=> 'sec_popular_products',
+					'type' 			=> 'number'
+				)
+			);
+		endif; // End Class Exists WooCommerce
 }
 add_action( 'customize_register', 'essence_customizer' );

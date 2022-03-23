@@ -23,6 +23,6 @@ $essence_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 	<input type="search" id="<?php echo esc_attr( $essence_unique_id ); ?>" class="search-field" value="<?php echo get_search_query(); ?>" id="headerSearch" name="s" />
 	<button aria-hidden="true" type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'essence' ); ?>"><i class="fa fa-search" aria-hidden="true"></i></button>
   <?php if( class_exists( 'WooCommerce' ) ): ?>
-  <input type="hidden" value="product" name="post_type" id="post_type">
+    <input type="hidden" value="product" name="post_type" id="post_type">
   <?php endif; ?>
 </form>
