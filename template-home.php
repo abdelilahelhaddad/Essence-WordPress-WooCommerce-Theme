@@ -172,17 +172,32 @@ get_header();
 </div>
 <!-- ##### Top Catagory Area End ##### -->
 
+<?php
+
+// Getting data from Customizer to display the Deal of the Week section
+$showdeal = get_theme_mod( 'set_deal_show', 0 );
+$deal = get_theme_mod( 'set_deal' );
+$regular = get_post_meta( $deal, '_regular_price', true);
+$sale = get_post_meta( $deal, '_sale_price', true);
+
+// We'll only show this section if the user chooses to do so and if some deal product is set
+if( $showdeal == 1 && ( !empty( $deal )) ):
+    $discount_percentage 	= absint( 100 - ( ( $sale/$regular ) * 100) );
+?>
+
 <!-- ##### CTA Area Start ##### -->
 <div class="cta-area">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="cta-content bg-img background-overlay" style="background-image: url(img/bg-img/bg-5.jpg);">
+                <div class="cta-content bg-img background-overlay" style="background-image: url(<?php echo get_the_post_thumbnail_url( $deal, 'large'); ?>);">
                     <div class="h-100 d-flex align-items-center justify-content-end">
                         <div class="cta--text">
-                            <h6>-60%</h6>
-                            <h2>Global Sale</h2>
-                            <a href="#" class="btn essence-btn">Buy Now</a>
+                        <?php if( !empty( $sale ) ): ?>
+                            <h6><?php echo esc_html( $discount_percentage ); ?><?php esc_html_e( '% OFF', 'essence' ) ?></h6>
+                        <?php endif; ?>
+                            <h2><?php echo esc_html( get_the_title( $deal ) );?></h2>
+                            <a href="<?php echo esc_url( '?add-to-cart=' . $deal ); ?>" class="btn essence-btn"><?php esc_html_e( 'Buy Now', 'essence' ); ?></a>
                         </div>
                     </div>
                 </div>
@@ -190,6 +205,7 @@ get_header();
         </div>
     </div>
 </div>
+<?php endif; ?>
 <!-- ##### CTA Area End ##### -->
 
 <!-- ##### New Arrivals Area Start ##### -->
@@ -198,7 +214,7 @@ get_header();
         <div class="row">
             <div class="col-12">
                 <div class="section-heading text-center">
-                    <h2><?php echo esc_html( get_theme_mod( 'set_popular_title', __( 'Popular products', 'fancy-lab' ) ) ); ?></h2>
+                    <h2><?php echo esc_html( get_theme_mod( 'set_popular_title', __( 'Popular products', 'essence' ) ) ); ?></h2>
                 </div>
             </div>
         </div>

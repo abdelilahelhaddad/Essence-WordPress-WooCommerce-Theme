@@ -237,5 +237,69 @@ function essence_customizer( $wp_customize ){
 				)
 			);
 		endif; // End Class Exists WooCommerce
+
+						/*---------------------------------------------------------------------------------------*/
+		//Special Deal
+						$wp_customize->add_section( 
+							'sec_week_deal', array(
+								'title' 		=> __( 'Special Deal Settings', 'essence'),
+								'description' 	=> __( 'Special Deal Section', 'essence' )
+							)
+						);
+								// We're gonna show the following options if WooCommerce is active
+		if( class_exists( 'WooCommerce' )):
+			// Field 1 - Special Deal Checkbox
+			$wp_customize->add_setting(
+				'set_deal_show', array(
+					'type' 				=> 'theme_mod',
+					'default' 			=> '',
+					'sanitize_callback' => 'essence_sanitize_checkbox' //See below
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_deal_show', array(
+					'label' 	=> __( 'Show the Special Deal?', 'essence' ),
+					'section' 	=> 'sec_week_deal',
+					'type' 		=> 'checkbox'			
+				)
+			);
+
+			// Field 2 - Special Deal Product ID
+			$wp_customize->add_setting(
+			   'set_deal', array(
+			      'type'               => 'theme_mod',
+			      'default'            => '',
+			      'sanitize_callback'  => 'absint',
+			      'validate_callback'  => 'essence_validate_sale_price'
+			   )
+			);
+
+			// Checks if the selected product has a sale price. If not, displays a warning
+			function essence_validate_sale_price( $validity, $product ) {
+			   $sale_validation = get_post_meta( $product, '_sale_price', true );
+			   if ( empty( $sale_validation ) ):
+			   	  /* translators: 1: product ID number */
+			      $validity->add( 'sale_price_not_set', sprintf( __( 'Please Add Sale Price - Product ID: %1$s', 'essence' ), $product ) );
+			   endif;
+			   return $validity;
+			}
+
+			$wp_customize->add_control(
+			   'set_deal', array(
+			      'label'        => __( 'Special Deal Product ID', 'essence' ),
+			      'description'  => __( 'Product ID to Display', 'essence' ),
+			      'section'      => 'sec_week_deal',
+			      'type'         => 'number'
+			   )
+			);
+
+		endif; // End Class Exists WooCommerce
 }
 add_action( 'customize_register', 'essence_customizer' );
+
+
+function essence_sanitize_checkbox( $checked ){
+	//returns true if checkbox is checked
+	return ( ( isset( $checked ) && true == $checked ) ? true : false );
+}
