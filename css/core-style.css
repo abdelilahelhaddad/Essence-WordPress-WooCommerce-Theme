@@ -1777,4 +1777,34 @@ img {
 	margin-top: 1.75rem !important;
 	margin-left: 0.5rem !important;
 }
+
+.special-deal-discount {
+  font-size: 24px !important;
+  color: #dc0345 !important;
+  margin-bottom: 10px !important; 
+}
+
+.special-deal-title {
+  font-size: 60px !important;
+  color: #000000 !important;
+  margin-bottom: 34px !important; 
+}
+
+.prices .regular {
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0.4;
+  margin-right: 8px;
+  text-decoration: line-through;
+}
+
+.prices .sale {
+  font-size: 2rem;
+  font-weight: 700;
+  color:#479128;
+}
+
+.woocommerce span.onsale {
+  padding: 0.04em;
+}
 /*# sourceMappingURL=core-style.css.map */

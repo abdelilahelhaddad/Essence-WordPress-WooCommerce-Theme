@@ -177,6 +177,7 @@ get_header();
 // Getting data from Customizer to display the Deal of the Week section
 $showdeal = get_theme_mod( 'set_deal_show', 0 );
 $deal = get_theme_mod( 'set_deal' );
+$currency = get_woocommerce_currency_symbol();
 $regular = get_post_meta( $deal, '_regular_price', true);
 $sale = get_post_meta( $deal, '_sale_price', true);
 
@@ -190,14 +191,35 @@ if( $showdeal == 1 && ( !empty( $deal )) ):
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="cta-content bg-img background-overlay" style="background-image: url(<?php echo get_the_post_thumbnail_url( $deal, 'large'); ?>);">
-                    <div class="h-100 d-flex align-items-center justify-content-end">
-                        <div class="cta--text">
-                        <?php if( !empty( $sale ) ): ?>
-                            <h6><?php echo esc_html( $discount_percentage ); ?><?php esc_html_e( '% OFF', 'essence' ) ?></h6>
-                        <?php endif; ?>
-                            <h2><?php echo esc_html( get_the_title( $deal ) );?></h2>
-                            <a href="<?php echo esc_url( '?add-to-cart=' . $deal ); ?>" class="btn essence-btn"><?php esc_html_e( 'Buy Now', 'essence' ); ?></a>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="cta-content bg-img background-overlay" style="background-image: url(<?php echo get_the_post_thumbnail_url( $deal, 'large'); ?>);"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="h-100 d-flex align-items-center justify-content-end">
+                            <div class="cta--text">
+                            <?php if( !empty( $sale ) ): ?>
+                                <h6 class="special-deal-discount"><?php echo esc_html( $discount_percentage ); ?><?php esc_html_e( '% OFF', 'essence' ) ?></h6>
+                            <?php endif; ?>
+                                <h2 class="special-deal-title"><?php echo esc_html( get_the_title( $deal ) );?></h2>
+                                <div class="prices">
+                                    <span class="regular">
+                                    <?php 
+										echo esc_html( $currency ); 
+										echo esc_html( $regular ); 
+										?>
+                                    </span>
+                                    <?php if( !empty( $sale ) ): ?>
+                                    <span class="sale">
+                                    <?php 
+                                        echo esc_html( $currency );
+                                        echo esc_html( $sale ); 
+                                        ?>
+                                    </span>
+                                    <?php endif; ?>
+                                </div>
+                                <a href="<?php echo esc_url( '?add-to-cart=' . $deal ); ?>" class="btn essence-btn"><?php esc_html_e( 'Buy Now', 'essence' ); ?></a>
+                            </div>
                         </div>
                     </div>
                 </div>
