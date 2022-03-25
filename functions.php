@@ -1,4 +1,5 @@
 <?php
+
 /**
  * essence functions and definitions
  *
@@ -7,9 +8,9 @@
  * @package essence
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
 /**
@@ -19,10 +20,11 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function essence_setup() {
+function essence_setup()
+{
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 	/*
 		* Let WordPress manage the document title.
@@ -30,57 +32,57 @@ function essence_setup() {
 		* hard-coded <title> tag in the document head, and expect WordPress to
 		* provide it for us.
 		*/
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 	/*
 		* Enable support for Post Thumbnails on posts and pages.
 		*
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 
-		/*
+	/*
 		* Enable support for WooCommerce.
 		*/
-	add_theme_support( 'woocommerce', array(
+	add_theme_support('woocommerce', array(
 		'thumbnail_image_width' => 300,
 		'single_image_width'    => 400,
 
-        'product_grid'          => array(
-            'default_rows'    => 3,
-            'min_rows'        => 2,
-            'max_rows'        => 6,
-            'default_columns' => 3,
-            'min_columns'     => 3,
-            'max_columns'     => 3,
-        ),
-	) );
+		'product_grid'          => array(
+			'default_rows'    => 3,
+			'min_rows'        => 2,
+			'max_rows'        => 6,
+			'default_columns' => 3,
+			'min_columns'     => 3,
+			'max_columns'     => 3,
+		),
+	));
 
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
+	add_theme_support('wc-product-gallery-zoom');
+	add_theme_support('wc-product-gallery-lightbox');
+	add_theme_support('wc-product-gallery-slider');
 
 	/* Insert big images without breaking content area*/
 
-	if ( ! isset( $content_width ) ) {
+	if (!isset($content_width)) {
 		$content_width = 600;
 	}
 
 	/**
- * Enqueue WP Bootstrap Navwalker library (responsive menu).
- */
-require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+	 * Enqueue WP Bootstrap Navwalker library (responsive menu).
+	 */
+	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+	/**
+	 * Customizer additions.
+	 */
+	require get_template_directory() . '/inc/customizer.php';
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'essence_main_menu' 	=> esc_html__( 'Essence Main Menu', 'essence' ),
-			'essence_footer_menu' 	=> esc_html__( 'Essence Footer Menu', 'essence' ),
+			'essence_main_menu' 	=> esc_html__('Essence Main Menu', 'essence'),
+			'essence_footer_menu' 	=> esc_html__('Essence Footer Menu', 'essence'),
 		)
 	);
 
@@ -114,7 +116,7 @@ require get_template_directory() . '/inc/customizer.php';
 	);
 
 	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_theme_support('customize-selective-refresh-widgets');
 
 	/**
 	 * Add support for core custom logo.
@@ -131,36 +133,37 @@ require get_template_directory() . '/inc/customizer.php';
 		)
 	);
 
-	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'essence-hero-section', 1920, 770, array( 'center', 'right' ) );
+	add_theme_support('post-thumbnails');
+	add_image_size('essence-hero-section', 1920, 770, array('center', 'right'));
 }
-add_action( 'after_setup_theme', 'essence_setup' );
+add_action('after_setup_theme', 'essence_setup');
 
 /*
 	Add Footer and Subscribtion Widgets
 */
 
-function essence_widgets(){
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Sidebar', 'essence' ),
+function essence_widgets()
+{
+	register_sidebar(array(
+		'name'          => esc_html__('Footer Sidebar', 'essence'),
 		'id'            => 'essence-sidebar-footer',
-		'description'   => esc_html__( 'Drag and drop your widgets here.', 'essence' ),
+		'description'   => esc_html__('Drag and drop your widgets here.', 'essence'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s widget-wrapper">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
-	) );
-	register_sidebar( array(
-		'name'          => esc_html__( 'Subscribtion Widget', 'essence' ),
+	));
+	register_sidebar(array(
+		'name'          => esc_html__('Subscribtion Widget', 'essence'),
 		'id'            => 'essence-widget-footer',
-		'description'   => esc_html__( 'Drag and drop your widgets here.', 'essence' ),
+		'description'   => esc_html__('Drag and drop your widgets here.', 'essence'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s widget-wrapper">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
-	) );
+	));
 }
-add_action( 'widgets_init', 'essence_widgets' );
+add_action('widgets_init', 'essence_widgets');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -169,32 +172,33 @@ add_action( 'widgets_init', 'essence_widgets' );
  *
  * @global int $content_width
  */
-function essence_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'essence_content_width', 640 );
+function essence_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('essence_content_width', 640);
 }
-add_action( 'after_setup_theme', 'essence_content_width', 0 );
+add_action('after_setup_theme', 'essence_content_width', 0);
 
 /**
  * Enqueue scripts and styles.
  */
-function essence_scripts() {
-	wp_enqueue_style( 'core-style', get_template_directory_uri() . '/css/core-style.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'classy-nav', get_template_directory_uri() . '/css/classy-nav.min.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'jquery-ui', get_template_directory_uri() . '/css/jquery-ui.min.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'magnific-popup', get_template_directory_uri() . '/css/magnific-popup.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'nice-select', get_template_directory_uri() . '/css/nice-select.css', array(), _S_VERSION, 'all' );
-	wp_enqueue_style( 'owl.carousel', get_template_directory_uri() . '/css/owl.carousel.css', array(), _S_VERSION, 'all' );
+function essence_scripts()
+{
+	wp_enqueue_style('core-style', get_template_directory_uri() . '/css/core-style.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('classy-nav', get_template_directory_uri() . '/css/classy-nav.min.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('jquery-ui', get_template_directory_uri() . '/css/jquery-ui.min.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('magnific-popup', get_template_directory_uri() . '/css/magnific-popup.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('nice-select', get_template_directory_uri() . '/css/nice-select.css', array(), _S_VERSION, 'all');
+	wp_enqueue_style('owl.carousel', get_template_directory_uri() . '/css/owl.carousel.css', array(), _S_VERSION, 'all');
 
-	wp_enqueue_script( 'jquery224', get_template_directory_uri() . '/js/jquery/jquery-2.2.4.min.js', array(), '2.2.4', true );
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery224' ), '4.1.0', true );
-	wp_enqueue_script( 'popper-js', get_template_directory_uri() . '/js/popper.min.js', array(), '', true );
-	wp_enqueue_script( 'classy-nav-js', get_template_directory_uri() . '/js/classy-nav.min.js', array(), '', true );
-	wp_enqueue_script( 'active-js', get_template_directory_uri() . '/js/active.js', array(), '', true );
-	wp_enqueue_script( 'map-active-js', get_template_directory_uri() . '/js/map-active.js', array(), '', true );
-	wp_enqueue_script( 'plugins-js', get_template_directory_uri() . '/js/plugins.js', array(), '', true );
+	wp_enqueue_script('jquery224', get_template_directory_uri() . '/js/jquery/jquery-2.2.4.min.js', array(), '2.2.4', true);
+	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery224'), '4.1.0', true);
+	wp_enqueue_script('popper-js', get_template_directory_uri() . '/js/popper.min.js', array(), '', true);
+	wp_enqueue_script('classy-nav-js', get_template_directory_uri() . '/js/classy-nav.min.js', array(), '', true);
+	wp_enqueue_script('active-js', get_template_directory_uri() . '/js/active.js', array(), '', true);
+	wp_enqueue_script('map-active-js', get_template_directory_uri() . '/js/map-active.js', array(), '', true);
+	wp_enqueue_script('plugins-js', get_template_directory_uri() . '/js/plugins.js', array(), '', true);
 }
-add_action( 'wp_enqueue_scripts', 'essence_scripts' );
-
+add_action('wp_enqueue_scripts', 'essence_scripts');
