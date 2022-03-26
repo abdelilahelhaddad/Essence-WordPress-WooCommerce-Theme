@@ -202,3 +202,10 @@ function essence_scripts()
 	wp_enqueue_script('plugins-js', get_template_directory_uri() . '/js/plugins.js', array(), '', true);
 }
 add_action('wp_enqueue_scripts', 'essence_scripts');
+
+/**
+ * Load WooCommerce compatibility file.
+ */
+if (class_exists('WooCommerce')) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}
