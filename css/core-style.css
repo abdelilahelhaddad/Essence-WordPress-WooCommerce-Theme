@@ -1832,4 +1832,36 @@ img {
 .woocommerce-result-count span {
   color: #0315ff
 }
+
+.product .onsale{
+  display: none;
+}
+
+.woocommerce ul.products li.product .button{	
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  }
+
+  .product-price{
+    margin-bottom: 0;
+    font-size: 16px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .product-price ins{
+    text-decoration: none !important;
+  }
+
+  .product-price del{
+    font-size: 16px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    color: #aaaaaa;
+    margin-right: 10px;
+    text-decoration: line-through;
+  }
 /*# sourceMappingURL=core-style.css.map */
