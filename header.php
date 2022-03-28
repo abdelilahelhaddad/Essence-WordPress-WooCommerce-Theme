@@ -26,7 +26,7 @@
         <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'essence'); ?></a>
 
         <!-- ##### Header Area Start ##### -->
-        <header class="header_area">
+        <header class="header_area <?php echo (is_admin_bar_showing()) ? 'mt-3' : ''; ?>">
             <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
                 <!-- Classy Menu -->
 

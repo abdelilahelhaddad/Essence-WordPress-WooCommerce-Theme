@@ -1811,4 +1811,25 @@ img {
 .woocommerce span.onsale {
   padding: 0.04em;
 }
+
+.shop-content{
+  margin-top: 8rem;
+}
+
+.shop-content .content-area .woocommerce-products-header{
+  display: none;
+}
+
+.woocommerce-result-count{
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+
+.woocommerce-result-count span {
+  color: #0315ff
+}
 /*# sourceMappingURL=core-style.css.map */
