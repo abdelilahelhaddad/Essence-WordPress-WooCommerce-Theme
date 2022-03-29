@@ -1864,4 +1864,24 @@ img {
     margin-right: 10px;
     text-decoration: line-through;
   }
+
+  .woocommerce-cart table.cart td.actions .coupon .input-text{
+    width: 9rem;
+  }
+
+  .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+  .woocommerce .cart .button,
+  .woocommerce button.button:disabled,
+  .woocommerce button.button:disabled[disabled]{
+    color: #ffffff;
+    background-color: #0315ff;
+  }
+
+  .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover,
+  .woocommerce .cart .button:hover,
+  .woocommerce button.button:disabled:hover,
+  .woocommerce button.button:disabled[disabled]:hover{
+    color: #ffffff;
+    background-color: #dc0345;
+  }
 /*# sourceMappingURL=core-style.css.map */
