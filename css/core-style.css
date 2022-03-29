@@ -1837,51 +1837,88 @@ img {
   display: none;
 }
 
-.woocommerce ul.products li.product .button{	
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  right: 10%;
-  }
+.product-price{
+  margin-bottom: 0;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  color: #000000;
+}
 
-  .product-price{
-    margin-bottom: 0;
-    font-size: 16px;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 700;
-    color: #000000;
-  }
+.product-price ins{
+  text-decoration: none !important;
+}
 
-  .product-price ins{
-    text-decoration: none !important;
-  }
+.product-price del{
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  color: #aaaaaa;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
 
-  .product-price del{
-    font-size: 16px;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 700;
-    color: #aaaaaa;
-    margin-right: 10px;
-    text-decoration: line-through;
-  }
+.product .essence-btn{
+  display: block !important;
+}
 
-  .woocommerce-cart table.cart td.actions .coupon .input-text{
-    width: 9rem;
-  }
+.woocommerce-cart table.cart td.actions .coupon .input-text{
+  width: 9rem;
+}
 
-  .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
-  .woocommerce .cart .button,
-  .woocommerce button.button:disabled,
-  .woocommerce button.button:disabled[disabled]{
-    color: #ffffff;
-    background-color: #0315ff;
-  }
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce .cart .button,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled]{
+  color: #ffffff;
+  background-color: #0315ff;
+}
 
-  .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover,
-  .woocommerce .cart .button:hover,
-  .woocommerce button.button:disabled:hover,
-  .woocommerce button.button:disabled[disabled]:hover{
-    color: #ffffff;
-    background-color: #dc0345;
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover,
+.woocommerce .cart .button:hover,
+.woocommerce button.button:disabled:hover,
+.woocommerce button.button:disabled[disabled]:hover{
+  color: #ffffff;
+  background-color: #dc0345;
+}
+
+.checkout .woocommerce-checkout {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media all and (max-width: 1200px){
+.checkout .woocommerce-checkout {
+    max-width: 1140px;
+}}
+@media all and (max-width: 992px){
+.checkout .woocommerce-checkout {
+    max-width: 960px;
+}}
+@media all and (max-width: 768px){
+.checkout .woocommerce-checkout {
+    max-width: 720px;
+}}
+@media all and (max-width: 576px){
+.checkout .woocommerce-checkout {
+    max-width: 540px;
+}}
+
+.woocommerce-checkout .col2-set .col-1,
+.woocommerce-checkout .col2-set .col-2 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+}
+
+@media all and (max-width: 767px) {
+
+  .woocommerce-checkout .col2-set .col-1,
+  .woocommerce-checkout .col2-set .col-2 {
+      flex: 0 0 100%;
+      max-width: 100%;
   }
+}
 /*# sourceMappingURL=core-style.css.map */
