@@ -86,7 +86,7 @@
                         </div>
                         <!-- Cart Area -->
                         <div class="cart-area">
-                            <a href="<?php echo esc_url(wc_get_cart_url()); ?>" id="essenceCartBtn"><img src="<?php echo get_template_directory_uri(); ?>/img/core-img/bag.svg" alt=""> <span><?php echo esc_html(WC()->cart->get_cart_contents_count()); ?></span></a>
+                            <a href="<?php echo esc_url(wc_get_cart_url()); ?>" id="essenceCartBtn"><img src="<?php echo get_template_directory_uri(); ?>/img/core-img/bag.svg" alt=""> <span class="cart-item" ><?php echo esc_html(WC()->cart->get_cart_contents_count()); ?></span></a>
                         </div>
                     <?php endif; ?>
                 </div>
