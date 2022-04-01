@@ -1961,14 +1961,25 @@ img {
   float: left;
 }
 
+.products .product p{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .woocommerce ul.products li.product a img {
 	height: 320px;
   object-fit: cover;
 }
-	
+
+.cta-area .cta-content{
+  object-fit: cover;
+  background-size: 400px 500px;
+}
 .products .product .essence-btn {
 	position: absolute;
-  top: 60%;
+  top: 55%;
   left: 8%;
   right: 8%;
   opacity: 0;
@@ -1976,7 +1987,6 @@ img {
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
 }
-
 	
 .products .product:hover .essence-btn {
   opacity: 1;
@@ -1990,5 +2000,14 @@ a.essence-btn:hover{
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
+}
+
+@media all and (max-width: 767px) {
+  #wpadminbar{
+    position: fixed;
+  }
+  .header_area.mt-3{
+    margin-top: 2.5rem !important;
+  }
 }
 /*# sourceMappingURL=core-style.css.map */
