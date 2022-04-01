@@ -1866,11 +1866,6 @@ img {
   width: 9rem;
 }
 
-.woocommerce{
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
 .woocommerce .cart .button,
 .woocommerce button.button:disabled,
@@ -1966,4 +1961,34 @@ img {
   float: left;
 }
 
+.woocommerce ul.products li.product a img {
+	height: 320px;
+  object-fit: cover;
+}
+	
+.products .product .essence-btn {
+	position: absolute;
+  top: 60%;
+  left: 8%;
+  right: 8%;
+  opacity: 0;
+  font-weight: 600;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+	
+.products .product:hover .essence-btn {
+  opacity: 1;
+}
+
+a.essence-btn:hover{
+  -webkit-transition: none;
+  transition: none;
+  text-decoration: none;
+  outline: 0 solid transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+}
 /*# sourceMappingURL=core-style.css.map */
