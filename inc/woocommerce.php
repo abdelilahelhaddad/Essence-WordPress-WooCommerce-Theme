@@ -53,7 +53,7 @@ if (!function_exists('essence_wc_modify')) :
 				}
 			}
 
-			if (!is_front_page()) {
+			if (is_front_page() or is_shop()) {
 				add_action('woocommerce_after_shop_loop_item_title', 'the_excerpt', 1);
 			}
 
