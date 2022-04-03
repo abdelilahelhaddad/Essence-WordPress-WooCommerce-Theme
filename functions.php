@@ -162,6 +162,15 @@ function essence_widgets()
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	));
+	register_sidebar(array(
+		'name'					=> esc_html__('Essence Shop Sidebar', 'essence'),
+		'id'						=> 'essence-shop-sidebar',
+		'description'   => esc_html__('Drag and drop your widgets here.', 'essence'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s shop_sidebar_area mb-50">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h6 class="widget-title mb-30">',
+		'after_title'   => '</h6>',
+	));
 }
 add_action('widgets_init', 'essence_widgets');
 
@@ -213,16 +222,17 @@ if (class_exists('WooCommerce')) {
 /**
  * Show cart contents / total Ajax
  */
-add_filter( 'woocommerce_add_to_cart_fragments', 'essence_woocommerce_header_add_to_cart_fragment' );
+add_filter('woocommerce_add_to_cart_fragments', 'essence_woocommerce_header_add_to_cart_fragment');
 
-function essence_woocommerce_header_add_to_cart_fragment( $fragments ) {
+function essence_woocommerce_header_add_to_cart_fragment($fragments)
+{
 	global $woocommerce;
 
 	ob_start();
 
-	?>
-	<span class="cart-item" ><?php echo esc_html(WC()->cart->get_cart_contents_count()); ?></span>
-	<?php
+?>
+	<span class="cart-item"><?php echo esc_html(WC()->cart->get_cart_contents_count()); ?></span>
+<?php
 	$fragments['span.cart-item'] = ob_get_clean();
 	return $fragments;
 }
