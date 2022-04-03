@@ -2027,4 +2027,39 @@ a.essence-btn:hover{
   font-weight: 700;
   font-family: "Ubuntu", sans-serif;
 }
+
+.wc-block-product-categories-list .wc-block-product-categories-list-item a{
+  text-transform: capitalize;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 300;
+  color: #787878;
+}
+
+.wc-block-product-categories-list .wc-block-product-categories-list-item a:hover{
+  text-decoration: none;
+  color: #0315ff;
+}
+
+.price_slider_wrapper .price_slider .ui-slider-range,
+.price_slider_wrapper .price_slider .ui-slider-handle{
+  background-color: #dc0345 !important;
+}
+.price_slider_amount .price_label{
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+.price_slider_amount button{
+  color: #ffffff !important;
+  background-color: #0315ff !important;
+}
+
+.price_slider_amount button:hover{
+  color: #ffffff !important;
+  background-color: #dc0345 !important;
+}
 /*# sourceMappingURL=core-style.css.map */
