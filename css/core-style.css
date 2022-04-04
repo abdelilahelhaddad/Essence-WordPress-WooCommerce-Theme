@@ -1975,7 +1975,6 @@ img {
 
 .cta-area .cta-content{
   object-fit: cover;
-  background-size: 400px 500px;
 }
 .products .product .essence-btn {
 	position: absolute;
@@ -2061,5 +2060,38 @@ a.essence-btn:hover{
 .price_slider_amount button:hover{
   color: #ffffff !important;
   background-color: #dc0345 !important;
+}
+
+.single_catagory_area .catagory-content a {
+  text-decoration: none;
+}
+
+.wpcf7 form.failed .wpcf7-response-output{
+  color: #a6a6a6;
+}
+
+.footer_area .single_widget_area .subscribtion_form form{
+  width: 100%;
+}
+
+.woocommerce-pagination .page-numbers a.page-numbers{
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 38px;
+  padding: 0;
+  text-align: center;
+  color: #787878;
+}
+
+.woocommerce-pagination .page-numbers a.page-numbers:hover{
+  color: #0315ff;
+}
+
+.woocommerce-pagination .page-numbers span.page-numbers.current{
+  color: #0315ff;
+  font-weight: 600;
+  padding: 0.75em;
 }
 /*# sourceMappingURL=core-style.css.map */
